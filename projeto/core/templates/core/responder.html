@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %} {% block content %} {% load embed_video_tags %} {% load bootstrap %}
+<div class="container">
+
+    <div class="row" style="border: 1px">
+        <p>Nome: {{edp}} </p>
+        Objetivo:
+        <p> {{edp.objetivo_pedagogigo}}</p>
+        Video:
+        <p></p>
+        {% video edp.video as my_video %}
+        <div>
+            <br>{% video my_video 'tiny' %} </div>
+ 
+        {% endvideo %}
+   
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+        
+                {{ form|bootstrap }}
+        
+            </div>
+        
+        
+            <button class="save btn btn-primary" type="submit">Salvar Resposta</button>
+        
+        
+        
+        
+        </form>
+
+    </div>
+
+
+
+
+</div>
+<a href="{% url 'inicio' %}"><button class="btn btn-success"><span class="glyphicon glyphicon-home"></span> Início</button></a>
+
+</div>
+
+</div>
+{% endblock content %}

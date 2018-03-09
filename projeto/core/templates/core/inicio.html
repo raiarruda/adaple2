@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %} {% block content %} {% load embed_video_tags %}
+<div class="container">
+
+    <div class="row">
+        <div class="panel" style="width: 25%;display: inline-block">
+          
+            {% for group in user.groups.all %} {% if group.name == 'aluno' %}
+
+            <table class="table">
+                <thead class="thead thead-danger">
+                    <tr>
+                        <th>Título</th>
+                        <th>Visualização Aluno</th>
+                    </tr>
+                </thead>
+                <div class="panel-body">
+                    <tbody>
+                        {% for edp in edps %}
+                        <tr>
+                            <th scope="row">{{edp.nome}}</th>
+
+
+                            <td>
+                                <a class="btn btn-default" href="{% url 'edp_responder' pk=edp.pk %}">Entrar</a>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+
+            </table>
+
+            {% endif %} {% endfor %}
+            {% for group in user.groups.all %} {% if group.name == 'professor' %}
+
+            <a href="{% url 'edp_nova' %}">
+                <button class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> Nova EDP</button>
+            </a>
+            <table class="table">
+                <thead class="thead thead-danger">
+                    <tr>
+                        <th>Título</th>
+                        <th>Visualização</th>
+                        <th>Editar Recursos</th>
+                    </tr>
+                </thead>
+                <div class="panel-body">
+                    <tbody>
+                        {% for edp in edps %}
+                        <tr>
+                            <th scope="row">{{edp.nome}}</th>
+
+                            <td>
+                                <a class="btn btn-default" href="{% url 'edp' pk=edp.pk %}">Visualizar</a>
+                            </td>
+
+                            <td>
+                                {% if %}
+                                <a class="btn btn-primary" href="{% url 'add_recurso_edp' pk=edp.pk %}">Editar Recursos</a>
+                            </td>
+
+                          
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+
+            </table>
+
+     
+
+            {% endif %} {% endfor %}
+            <!--for do grupo e if do grupo-->
+
+            </div>
+
+
+            </div>
+
+        </div>
+        {% endblock content %}

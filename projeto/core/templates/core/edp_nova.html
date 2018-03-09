@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %} {%load static%} {% block content %} {% load bootstrap %}
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+
+        <!-- <label>{{field.label_tag}}</label> {{field}}
+       -->
+        {{ form|bootstrap }}
+
+    </div>
+
+
+
+    <button class="save btn btn-primary" type="submit">Guardar</button>
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+</form>
