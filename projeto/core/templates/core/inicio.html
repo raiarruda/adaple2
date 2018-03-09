@@ -23,7 +23,7 @@
                             <td>
                                 <a class="btn btn-default" href="{% url 'edp_responder' pk=edp.pk %}">Entrar</a>
                             </td>
-
+                            
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -44,6 +44,7 @@
                         <th>Título</th>
                         <th>Visualização</th>
                         <th>Editar Recursos</th>
+                        <th>Respostas</th>
                     </tr>
                 </thead>
                 <div class="panel-body">
@@ -53,14 +54,17 @@
                             <th scope="row">{{edp.nome}}</th>
 
                             <td>
-                                <a class="btn btn-default" href="{% url 'edp' pk=edp.pk %}">Visualizar</a>
+                                <a class="btn btn-info" href="{% url 'edp' pk=edp.pk %}">Visualizar</a>
                             </td>
 
-                            <td>
-                                
+                            <td>   
+                                                             
                                 <a class="btn btn-primary" href="{% url 'add_recurso_edp' pk=edp.pk %}">Adicionar Recursos</a>
                             </td>
-
+                            <td>
+                                <a class="btn btn-warning" href="{% url 'edp_respostas' pk=edp.pk %}">Ver Respostas</a>
+                                
+                            </td>
                           
 
                         </tr>

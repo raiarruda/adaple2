@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %} {% block content %} {% load embed_video_tags %}
+<div class="container">
+
+    <div class="row">
+        <div class="panel" style="width: 50%;display: inline-block">
+
+            {% for group in user.groups.all %} {% if group.name == 'professor' %}
+            
+            <h3><bold>EDP: </bold>{{edpAtual.nome}}</h3>
+
+
+            <table class="table">
+                <thead class="thead thead-danger">
+                    <tr>
+                        <th>Nome do Aluno</th>
+                        <th>Visualização Resposta</th>
+                    </tr>
+                </thead>
+                <div class="panel-body">
+                    <tbody>
+                       
+                        {% for edp in edps_respostas %}
+                            {% if empty %}
+                            <li>Ninguém respondeu a EDP</li>
+                        <tr>
+                            {% endif %}
+                            <th scope="row">{{edp.aluno}}</th>
+
+
+                            <td>
+                                <a class="btn btn-primary" href="#">Visualizar</a>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+
+            </table>
+
+            {% endif %} {% endfor %} 
+
+            </div>
+
+
+        </div>
+
+    </div>
+    {% endblock content %}

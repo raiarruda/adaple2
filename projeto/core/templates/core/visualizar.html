@@ -2,35 +2,44 @@
 <div class="container">
 
     <div class="row" style="border: 1px">
-        <p> Nome:
-        {{edp}} </p>
-       <p></p> Objetivo:
-         {{edp.objetivo_pedagogigo}}</p>
-            
-        {{edp.habilidades}}
-        
+        <p>
+            <b>Nome:</b>
+            {{edp}} </p>
+        <p>
+            <b>Objetivo:</b>
+            {{edp.objetivo_pedagogigo}}</p>
+       <p> <b>Habilidades: </b>
+        {% for h in habilidades%} {{h}} - {% endfor %}
+        </p><p>
+            <b>Atividades:</b>
+            {{edp.atividades}}</p>
+        <p>
+            <b>Metodologia:</b>
+            {{edp.metodologia}}</p>
     </div>
 
+    <h3>Recursos</h3>
     <div class="row" style="border: 1px">
-    
-       {% video recursos.video as my_video %}
-       <div>
-           <br>{% video my_video 'tiny' %} </div>
 
-       {% endvideo %}
-      
-       {{recursos.texto}}
-       
-       {{recursos.player_audio}}
-  
+        {% video recursos.video as my_video %}
+        <div>
+            <b>Vídeo:</b>
+            <br>{% video my_video 'tiny' %} </div>
+
+        {% endvideo %}
+
+        <b> Texto:</b> {{recursos.texto}}
+
+
+
 
 
     </div>
-    <a class="btn btn-primary" href="{% url 'add_recurso_edp' pk=edp.pk %}">Adicionar Recursos</a>
+
 
 
 </div>
-<a href="{% url 'edp_nova' %}"><button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nova EDP</button></a>
+
 
 </div>
 

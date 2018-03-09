@@ -8,6 +8,7 @@ from datetime import datetime
 urlpatterns = [
     url(r'^inicio', views.inicio, name='inicio'),
     url(r'^edp/(?P<pk>[0-9]+)/$', views.visualizarEDP, name='edp'),
+    url(r'^edp/(?P<pk>[0-9]+)/respostas$', views.listaRespostasEDP, name='edp_respostas'),
     url(r'^edp/(?P<pk>[0-9]+)/adiciona_recursos$', views.add_recurso_edp, name='add_recurso_edp'),
     url(r'^edp/(?P<pk>[0-9]+)/responder$', views.responderEDP, name='edp_responder'),
     url(r'^edp/nova/$', views.edp_nova, name='edp_nova'),
