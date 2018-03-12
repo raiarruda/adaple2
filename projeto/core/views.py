@@ -17,6 +17,8 @@ def inicio(request):
 
 
 def edp_nova(request):
+
+    #TODO: usar o metodo add para as habilidades. como?
     if request.method == "POST":
         form = form_edp(request.POST)
         if form.is_valid():
@@ -71,10 +73,7 @@ def visualizarEDP (request, pk):
 def responderEDP (request, pk):
 
     assert isinstance(request, HttpRequest)
-
     edp = db_edp.objects.all().get(pk=pk)
-
-    #edp_aluno = db_edp_aluno.objects.create(aluno=request.user, edp=edp)
     if request.method == "POST":
 
         form = form_edp_aluno(request.POST)

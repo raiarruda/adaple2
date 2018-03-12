@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %} {% block content %} {% load embed_video_tags %}
+<div class="container">
+
+
+    {% for aluno in alunos %}
+    <div class="row" style="border: 1px">
+       
+        <p></p>{{aluno}}  -  <a class="btn btn-default" href="{% url 'perfilaluno' pk=aluno.pk %}">Entrar</a></p>
+    </div>
+    {% endfor %}
+
+
+
+</div>
+{% endblock content %}

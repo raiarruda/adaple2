@@ -22,18 +22,19 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 
 
 class form_edp(forms.ModelForm):
+
+    queryset=db_habilidades.objects.all()
     nome = forms.CharField(label='Nome',  required=True)
     objetivo_pedagogigo = forms.CharField(
         label='O que aprender? ',  required=True, widget=forms.Textarea)
-    habilidades = forms.ModelMultipleChoiceField(queryset=db_habilidades.objects.all(),
-                                                 label='Quais habilidades envolvidas?', required=True, widget=forms.CheckboxSelectMultiple)
+    habilidades = forms.ModelMultipleChoiceField(queryset, label='Quais habilidades envolvidas?', required=True, widget=forms.CheckboxSelectMultiple)
     atividades = forms.CharField(label='O que fazer? ',  required=True, widget=forms.Textarea)
     metodologia = forms.CharField(label='Como fazer? ',  required=True, widget=forms.Textarea)
 
     class Meta:
         model = db_edp
 
-        fields = ('nome', )
+        fields = ('nome', 'objetivo_pedagogigo', 'habilidades' , 'atividades','metodologia',)
 
 
 class form_add_recursos_edp(forms.ModelForm):

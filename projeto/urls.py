@@ -25,5 +25,6 @@ import projeto.login.urls
 
 urlpatterns = [
     url(r'', include('projeto.core.urls')),
+    url(r'^perfil/', include('projeto.perfil.urls')),
     url(r'^admin/', admin.site.urls),
 ]
