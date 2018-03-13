@@ -26,7 +26,7 @@ SECRET_KEY = 'b+=h$vdlk9&5w_an71f=)vlyog3jfl#kzl-3k5$54elbfs*i$m'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['raiarruda.pythonanywhere.com']
 
 
 # Application definition
