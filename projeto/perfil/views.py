@@ -19,9 +19,14 @@ def listaralunos(request):
 
 def perfilaluno(request,pk):
     aluno_perfil = User.objects.all().get(pk=pk)
-    edps_do_aluno = db_edp_aluno.objects.filter(aluno=aluno_perfil)
+    edps= db_edp_aluno.objects.all()
+    edps_do_aluno = edps.filter(aluno=aluno_perfil)
 
-    return render(request, 'perfil/visualizarperfil.html', {'title': 'Aluno','alunos':aluno_perfil})
+    return render(request, 'perfil/visualizarperfil.html', {'title': 'Aluno','alunos':aluno_perfil,'edps':edps_do_aluno})
 
-
+def resposta_edp_aluno(request,pk):
+    edp_aluno = db_edp_aluno.objects.all().get(pk=pk)
+    edp = edp_aluno.edp
+    teste = "testeeeee"
+    return render(request, 'perfil/visualizar_aluno_edp.html', {'title': 'Visualizar EDP','edp':edp, 'teste':teste})
     

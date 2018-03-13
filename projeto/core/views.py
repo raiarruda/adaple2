@@ -8,14 +8,14 @@ from django.contrib.auth.models import User
 from .models import db_edp, db_edp_aluno, db_recursos,  db_edp_aluno
 from .forms import form_edp, form_edp_aluno, form_add_recursos_edp
 # Create your views here.
-
+@login_required
 def inicio(request):
     edps = db_edp.objects.all()
     
 
     return render(request, 'core/inicio.html', {'title': 'Estruturas Digitais Pedagogicas','edps':edps})
 
-
+@login_required
 def edp_nova(request):
 
     #TODO: usar o metodo add para as habilidades. como?
@@ -34,7 +34,7 @@ def edp_nova(request):
         form = form_edp()
     return render( request, 'core/edp_nova.html', {'form':form})
 
-
+@login_required
 def add_recurso_edp(request,pk):
     assert isinstance(request, HttpRequest)
 
@@ -54,7 +54,7 @@ def add_recurso_edp(request,pk):
         form = form_add_recursos_edp()
     return render( request, 'core/add_recurso_edp.html', {'form':form})
 
-
+@login_required
 def visualizarEDP (request, pk):
     assert isinstance(request, HttpRequest)
 
@@ -69,7 +69,7 @@ def visualizarEDP (request, pk):
     return render (request, 'core/visualizar.html', {'title': 'Visualizar EDP','edp': edp, 'recursos':recursos, 'habilidades':habilidades })
 
 
-
+@login_required
 def responderEDP (request, pk):
 
     assert isinstance(request, HttpRequest)
@@ -92,7 +92,7 @@ def responderEDP (request, pk):
         form = form_edp_aluno()
 
     return render (request, 'core/responder.html', {'title': 'Responder EDP', 'edp':edp, 'form':form})
-
+@login_required
 def listaRespostasEDP(request,pk):
     edps_aluno =  db_edp_aluno.objects.all()
     edpAtual  = db_edp.objects.all().get(pk=pk)

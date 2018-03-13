@@ -1,16 +1,17 @@
 {% extends 'core/base.html' %} {% block content %} {% load embed_video_tags %}
 <div class="container">
 
+   
 
-    {% for edp in edps %}
+
     <div class="row" style="border: 1px">
-        {% empty %}
-        o aluno nao respondeu
-        <p> {{edp.edp}}  <a class="btn btn-default" href="{% url 'resposta_edp_aluno' pk=edp.pk %}">Entrar</a> </p>
+
+        
+        <p> {{edp}}  </p>
     </div>
-    {% endfor %}
 
 
 
 </div>
+
 {% endblock content %}
