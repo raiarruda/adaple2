@@ -26,7 +26,7 @@ SECRET_KEY = 'b+=h$vdlk9&5w_an71f=)vlyog3jfl#kzl-3k5$54elbfs*i$m'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['raiarruda.pythonanywhere.com']
+ALLOWED_HOSTS = ['raiarruda.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #pip install
     'embed_video',
     'bootstrapform',
+  #  'django_mysql',
     #custom
     'projeto.core',
     'projeto.login',

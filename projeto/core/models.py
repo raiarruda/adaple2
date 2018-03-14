@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from embed_video.fields import EmbedVideoField
-
+#from django_mysql.models import ListCharField
 
 class db_habilidades (models.Model):
     nome = models.CharField(max_length=50)
@@ -15,6 +15,11 @@ class db_edp(models.Model):
     nome = models.CharField(max_length=100)
     objetivo_pedagogigo = models.TextField()
     habilidades = models.ManyToManyField(db_habilidades)
+   # habilidades = ListCharField(
+    #    base_field=models.CharField(max_length=10),
+     #   size=6,
+      #  max_length=(6 * 11)  # 6 * 10 character nominals, plus commas
+    #)
     atividades = models.TextField()
     metodologia = models.TextField()
     usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING,)

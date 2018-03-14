@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 from .models import db_edp, db_habilidades, db_edp_aluno, db_recursos
 from embed_video.fields import EmbedVideoField
+#from django_mysql.forms import SimpleListField
 
 # t= translate, w= writing...
 skills_choice = (('t', 'tradução'), ('w', 'escrita'),
@@ -28,6 +29,9 @@ class form_edp(forms.ModelForm):
     objetivo_pedagogigo = forms.CharField(
         label='O que aprender? ',  required=True, widget=forms.Textarea)
     habilidades = forms.ModelMultipleChoiceField(queryset, label='Quais habilidades envolvidas?', required=True, widget=forms.CheckboxSelectMultiple)
+    # habilidades = SimpleListField(forms.CharField(), label='Quais habilidades envolvidas? ', 
+    #                                     widget=forms.TextInput(attrs={'placeholder': 'Separe as habilidades por virgula'}))
+    
     atividades = forms.CharField(label='O que fazer? ',  required=True, widget=forms.Textarea)
     metodologia = forms.CharField(label='Como fazer? ',  required=True, widget=forms.Textarea)
 

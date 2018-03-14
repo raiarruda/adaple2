@@ -74,6 +74,7 @@ def responderEDP (request, pk):
 
     assert isinstance(request, HttpRequest)
     edp = db_edp.objects.all().get(pk=pk)
+    recursos = db_recursos.objects.all().get(edp=edp)
     if request.method == "POST":
 
         form = form_edp_aluno(request.POST)
@@ -91,7 +92,7 @@ def responderEDP (request, pk):
     else:
         form = form_edp_aluno()
 
-    return render (request, 'core/responder.html', {'title': 'Responder EDP', 'edp':edp, 'form':form})
+    return render (request, 'core/responder.html', {'title': 'Responder EDP', 'edp':edp, 'recursos':recursos, 'form':form})
 @login_required
 def listaRespostasEDP(request,pk):
     edps_aluno =  db_edp_aluno.objects.all()

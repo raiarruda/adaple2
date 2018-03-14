@@ -3,16 +3,17 @@
 
     <div class="row" style="border: 1px">
         <p>Nome: {{edp}} </p>
-        Objetivo:
-        <p> {{edp.objetivo_pedagogigo}}</p>
-        Video:
+        <b> Texto:</b> {{recursos.texto}}
+        
         <p></p>
-        {% video edp.video as my_video %}
+        {% video recursos.video as my_video %}
         <div>
+            <b>Vídeo:</b>
             <br>{% video my_video 'tiny' %} </div>
- 
+
         {% endvideo %}
-   
+
+       
 
         <form method="POST">
             {% csrf_token %}
